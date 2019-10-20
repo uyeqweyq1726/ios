@@ -5,24 +5,25 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta content="text/html charset=UTF-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
-    <link rel="apple-touch-icon" href="icon-250.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
     <title>快捷方式</title>
+
+    <script>
+    if(('standalone' in window.navigator)&&window.navigator.standalone){
+            var noddy,remotes=false;
+            document.addEventListener('click',function(event){
+                    noddy=event.target;
+                    while(noddy.nodeName!=='A'&&noddy.nodeName!=='HTML') noddy=noddy.parentNode;
+                    if('href' in noddy&&noddy.href.indexOf('http')!==-1&&(noddy.href.indexOf(document.location.host)!==-1||remotes)){
+                            event.preventDefault();
+                            document.location.href=noddy.href;
+                    }
+            },false);
+    }
+    </script>
 </head>
 <body>
-<script>
-if(('standalone' in window.navigator)&&window.navigator.standalone){
-        var noddy,remotes=false;
-        document.addEventListener('click',function(event){
-                noddy=event.target;
-                while(noddy.nodeName!=='A'&&noddy.nodeName!=='HTML') noddy=noddy.parentNode;
-                if('href' in noddy&&noddy.href.indexOf('http')!==-1&&(noddy.href.indexOf(document.location.host)!==-1||remotes)){
-                        event.preventDefault();
-                        document.location.href=noddy.href;
-                }
-        },false);
-}
-</script>
-    
+
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
@@ -34,8 +35,8 @@ if(('standalone' in window.navigator)&&window.navigator.standalone){
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
-    <p><a href="1.html">点击链接1</a></p>
-    <p><a href="2.html">点击链接2</a></p>
+    <p><a href="b.html">点击链接 B</a></p>
+    <p><a href="c.html">点击链接 C</a></p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
