@@ -9,12 +9,20 @@
     <title>快捷方式</title>
 </head>
 <body>
-<!-- href后的链接是APP对外开放的scheme，只有scheme与APP中设置的一致，才能打开APP，
-而scheme后面的值可以作为打开APP后的特殊操作，如果仅仅是打开，后面随便写就行，APP中不进行处理即可 -->
-    <a href="shortcut://abc" id="qbt" style="display:none"></a> 
-    <span id="msg"></span>
-</body>
-
+<script>
+if(('standalone' in window.navigator)&&window.navigator.standalone){
+        var noddy,remotes=false;
+        document.addEventListener('click',function(event){
+                noddy=event.target;
+                while(noddy.nodeName!=='A'&&noddy.nodeName!=='HTML') noddy=noddy.parentNode;
+                if('href' in noddy&&noddy.href.indexOf('http')!==-1&&(noddy.href.indexOf(document.location.host)!==-1||remotes)){
+                        event.preventDefault();
+                        document.location.href=noddy.href;
+                }
+        },false);
+}
+</script>
+    
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
@@ -71,4 +79,5 @@
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
+</body>
 </html>
