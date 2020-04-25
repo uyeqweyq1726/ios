@@ -4,8 +4,7 @@
   "lang": "en-US",
   "display": "standalone",
   "orientation": "landscape",
-  "start_url": "https://uyeqweyq1726.github.io/ios/",
-  "scope": "https://uyeqweyq1726.github.io/ios/",
+  "start_url": "/ios/",
   "permissions": [ 
     "unlimitedStorage",
     "fullscreen"
