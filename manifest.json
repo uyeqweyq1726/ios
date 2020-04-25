@@ -1,7 +1,7 @@
 {
   "name": "My App Name",
   "short_name": "My App",
-  "lang": "en-US",
+  "lang": "en-GB",
   "scope": "/ios/",
   "display": "standalone"
 }
