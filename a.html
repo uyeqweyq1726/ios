@@ -10,17 +10,15 @@
     <title>1快捷方式</title>
 
     <script>
-    if(('standalone' in window.navigator)&&window.navigator.standalone){
-            var noddy,remotes=false;
-            document.addEventListener('click',function(event){
-                    noddy=event.target;
-                    while(noddy.nodeName!=='A'&&noddy.nodeName!=='HTML') noddy=noddy.parentNode;
-                    if('href' in noddy&&noddy.href.indexOf('http')!==-1&&(noddy.href.indexOf(document.location.host)!==-1||remotes)){
-                            event.preventDefault();
-                            document.location.href=noddy.href;
-                    }
-            },false);
+    var a=document.getElementsByTagName("a");
+for(var i=0;i<a.length;i++)
+{
+    a[i].onclick=function()
+    {
+        window.location=this.getAttribute("href");
+        return false
     }
+}
     </script>
 </head>
 <body>
@@ -36,7 +34,7 @@
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
-    <p><a href="javascript:this.location='b.html'">点击链接 B</a></p>
+    <p><a href="b.html">点击链接 B</a></p>
     <p><a href="c.html">点击链接 C</a></p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
