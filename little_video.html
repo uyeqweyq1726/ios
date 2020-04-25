@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>撸SIR</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />	
+		<link rel="manifest" href="manifest.json">
+		<meta name="referrer" content="never">
+		<link href="http://www.u1u20.com/lusir/css/mui.css" rel="stylesheet" />
+		<link href="http://www.u1u20.com/lusir/css/little_index.css" rel="stylesheet" />
+		<script src="http://www.u1u20.com/lusir/js/jquery-3.4.1.min.js"></script>
+		<script src="http://www.u1u20.com/lusir/js/jquery.mobile-1.4.5.js"></script>
+		<script src="https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js"></script>
+		<script src="http://www.u1u20.com/lusir/js/mui.js "></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				height: auto;
+			}
+
+			.clearfix {
+				*zoom: 1;
+			}
+
+			ul,
+			li {
+				list-style-type: none;
+			}
+
+			/* 去掉点击a标签背景色 */
+			a {
+				-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+				-webkit-user-select: none;
+				-moz-user-focus: none;
+				-moz-user-select: none;
+			}
+
+			.head_nav_wrap {
+				height: 40px;
+				position: relative;
+				z-index: 10;
+				margin: 0 0px;
+				overflow: hidden;
+				background-color: #fff;
+			}
+
+			.head_nav {
+				height: 50px;
+				font-size: 18px;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			.head_nav>li {
+				-webkit-box-flex: 0;
+				-webkit-flex: none;
+				-ms-flex: none;
+				flex: none;
+				padding-top: 4px;
+			}
+
+			.head_nav a {
+				display: block;
+				position: relative;
+				line-height: 38px;
+				color: #222;
+				text-decoration: none
+			}
+
+			.head_nav>li.active a {
+				color: #E67BFF;
+				background: url(../images/line1.png) no-repeat ;
+				background-position: bottom;
+				
+			}
+			
+			.address_li{
+				color: #333333;
+				background: #00000000;
+			}
+			
+			.aaa {
+				width: 80px;
+				display: inline-block;
+				text-align: center;
+				line-height: 38px;
+				height: 40px;
+				font-size: 18px;
+				margin: 0;
+				font-family: "PingFangSC-Semibold, sans-serif";
+				
+				background: url(../images/line2.png) no-repeat;
+				background-position: bottom;
+			
+			}
+			
+			.aaa1 {
+				width: 80px;
+				display: inline-block;
+				text-align: center;
+				height: 40px;
+				font-family: "PingFangSC-Semibold, sans-serif";
+				
+				margin: 0;
+				line-height: 38px;
+			
+				font-size: 18px;
+				color: #333333;
+			
+			}
+			
+			/*核心代码*/
+			#toppp::-webkit-scrollbar {
+				/*滚动条整体样式*/
+				width: 4px;
+				/*高宽分别对应横竖滚动条的尺寸*/
+				height: 0px;
+			}
+			
+			/* #toppp::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+			border-radius: 5px;
+			-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+			background: rgba(0, 0, 0, 0.2);
+			}
+			
+			#toppp::-webkit-scrollbar-track {
+				/*滚动条里面轨道*/
+				-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+				border-radius: 0;
+				background: rgba(0, 0, 0, 0.1);
+			}
+			
+			/*核心代码*/
+			
+		</style>
+	</head>
+
+	<body style="margin: 0;background-color: #F8F8F8;hoverflow:scroll;height: auto;">
+		<header class="mui-bar mui-bar-nav" style="margin: 0;background: #FFFFFF;">
+			<div id="tab_top">
+				<a style="line-height: 25px;text-align: center;float: right;margin-top: 9px;float: right;">
+					<img src="../images/search.png" style="width: 20px;height: 20px;" onclick="toSearch();" />
+				</a>
+
+
+				<div class="head_nav_wrap">
+					<!-- <ul class="head_nav">
+						<li class="active" id="tab1"><a onclick="changeTab1(0);"><strong>最新</strong></a></li>
+						<li class="address_li" id="tab2"><a onclick="changeTab1(1);"><strong>VIP</strong></a></li>
+						<li class="address_li" id="tab3"><a onclick="changeTab1(2);"><strong>國產</strong></a></li>
+						<li class="address_li" id="tab4"><a onclick="changeTab1(3);"><strong>絲襪</strong></a></li>
+						<li class="address_li" id="tab5"><a onclick="changeTab1(4);"><strong>女神</strong></a></li>
+						<li class="address_li" id="tab6"><a onclick="changeTab1(5);"><strong>學生</strong></a></li>
+
+					</ul> -->
+					<div id="toppp" style="width: 90%;background: #FFFFFF;
+					margin: 0;padding: 0;display:inline-block; white-space: nowrap;overflow: auto;">
+						<a id="tab1" class="aaa" onclick="changeTab1(0);"><strong>最新</strong></a>
+						<a id="tab2" class="aaa1" onclick="changeTab1(1);"><strong>VIP</strong></a>
+						<a id="tab3" class="aaa1" onclick="changeTab1(2);"><strong>國產</strong></a>
+						<a id="tab4" class="aaa1" onclick="changeTab1(3);"><strong>絲襪</strong></a>
+						<a id="tab5" class="aaa1" onclick="changeTab1(4);"><strong>女神</strong></a>
+						<a id="tab6" class="aaa1" onclick="changeTab1(5);"><strong>學生</strong></a>
+					
+					</div>
+				</div>
+			</div>
+		</header>
+		<div style="height: 51px;"></div>
+		<div id="slider" class="mui-slider" style="display: none;">
+			<div class="mui-slider-group mui-slider-loop" id="banner" style="height: 120px;">
+			
+			</div>
+			<div class="mui-slider-indicator" id="diandian">
+				
+			</div>
+		</div>
+		<div id="imageDiv">
+			<ul class=" imglist" id="imageList">
+
+
+			</ul>
+		</div>
+		<div id="loading_v" style="text-align: center;height: 40px;line-height: 40px;">
+			正在加载中……
+		</div>
+		<div style="height: 55px;"></div>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" data-id="home" onclick="changeTab(0)">
+				<span class="mui-icon mui-icon-home" id="home_iv"></span>
+				<span class="mui-tab-label">&ensp;首頁</span>
+			</a>
+			<a class="mui-tab-item mui-active" data-id="contact" onclick="changeTab(1)">
+				<span class="mui-icon mui-icon-phone-click" id="video_iv"></span>
+				<span class="mui-tab-label">&ensp;小視頻</span>
+			</a>
+			<a class="mui-tab-item" data-id="email" onclick="changeTab(2)">
+				<span class="mui-icon mui-icon-email" id="class_iv"></span>
+				<span class="mui-tab-label">&ensp;分類</span>
+			</a>
+			<a class="mui-tab-item" data-id="setting" onclick="changeTab(3)">
+				<span class="mui-icon mui-icon-gear" id="coll_iv"></span>
+				<span class="mui-tab-label">&ensp;收藏</span>
+			</a>
+			<a class="mui-tab-item" data-id="setting1" onclick="changeTab(4)">
+				<span class="mui-icon mui-icon-gear1" id="me_iv"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+		<script type="text/javascript" charset="UTF-8">
+
+			var typeA = "XSP";
+			var typeB = "";
+			var pageNumber = 1;
+			var pageSS = 32;
+			var sort = "";
+			var level = 0;
+			var isload = false;
+			// var widthh = document.body.clientWidth - 40;
+			// $(".active").width(widthh / 4);
+			// $(".address_li").width(widthh / 4);
+			var widthh = document.body.clientWidth - 50;
+			// $(".active").width(widthh / 4);
+			// $(".address_li").width(widthh / 4);
+			var itemWidth=widthh/4;
+			
+			$("#toppp").width(widthh);
+			$(".aaa").width(itemWidth);
+			$(".aaa1").width(itemWidth);
+			document.body.style.height = "auto";
+			
+			var nowTime = time() + "ad"+APP_NAME;
+			var objBean=null;
+			
+			if (localStorage.getItem(nowTime) == null) {
+				getAdList();
+			} else {
+				console.log(localStorage.getItem(nowTime));
+				objBean = JSON.parse(localStorage.getItem(nowTime));
+				initAd();
+			}
+			
+			
+			function initAd() {
+				var banner = document.getElementById("banner");
+				var diandian = document.getElementById("diandian");
+			
+			
+				var strbanner = "";
+				if (objBean.list.length > 0) {
+					strbanner = "<div class=\"mui-slider-item mui-slider-item-duplicate\">" +
+						"<a href=\"#\">" +
+						"<img src=\"" + LOC_LOCPIC_PATH + objBean.list[0].imageUrl + "\"  style=\"height:120px;object-fit: cover;\">" +
+						"</a>" +
+						"</div>";
+				}
+				var diandianString = "";
+				var isFirst = true;
+				for (var i = 0; i < objBean.list.length; i++) {
+					var objjj = objBean.list[i];
+			
+					//LOC_LOCPIC_PATH+objjj.imageUrl
+					if (objjj.is_main == 3) {
+						strbanner += "<div class=\"mui-slider-item\">" +
+							"<a onclick=\"ToAd(\'" + objjj.to_url + "\');\">" +
+							"<img src=\"" + LOC_LOCPIC_PATH + objjj.imageUrl + "\" style=\"height:120px;object-fit: cover;\">" +
+							"</a></div>";
+						if (isFirst) {
+							diandianString += "<div class=\"mui-indicator mui-active\"></div>";
+							isFirst = false;
+						} else {
+							diandianString += "<div class=\"mui-indicator\"></div>";
+			
+						}
+			
+					} else if (objjj.is_main == 4) {
+						strbanner += "<div class=\"mui-slider-item\">" +
+							"<a onclick=\"ToZhuanTi(\'" + objjj.to_url + "\');\">" +
+							"<img src=\"" + LOC_LOCPIC_PATH + objjj.imageUrl + "\" style=\"height:120px;object-fit: cover;\">" +
+							"</a></div>"
+						if (isFirst) {
+							diandianString += "<div class=\"mui-indicator mui-active\"></div>";
+							isFirst = false;
+						} else {
+							diandianString += "<div class=\"mui-indicator\"></div>";
+			
+						}
+			
+					}
+				}
+			
+				if (objBean.list.length > 0) {
+					strbanner += "<div class=\"mui-slider-item mui-slider-item-duplicate\">" +
+						"<a href=\"#\">" +
+						"<img src=\"" + LOC_LOCPIC_PATH + objBean.list[0].imageUrl + "\"  style=\"height:120px;object-fit: cover;\">" +
+						"</a>" +
+						"</div>";
+				}
+				banner.innerHTML = strbanner;
+				diandian.innerHTML = diandianString;
+			
+				var slider = mui("#slider");
+				slider.slider({
+					interval: 2000
+				});
+				slider.stopped = false;
+			
+			}
+			
+			
+			function getAdList() {
+				var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppSys/getAdvert';
+				// alert(urlString);
+				$.ajax({
+					type: "GET",
+					url: urlString,
+					dataType: "text", //数据类型为jsonp  
+					data: {
+						"id": localStorage.getItem("memberid"+APP_NAME),
+						"appid": "123",
+						"tokens": "123"
+					},
+					jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+			
+					success: function(data) {
+						console.log(data);
+						// alert(data);
+						var Stringg = getHttpDate(data, "getAdvert");
+						localStorage.setItem(nowTime, Stringg);
+						objBean = JSON.parse(localStorage.getItem(nowTime));
+						initAd();
+									
+					},
+					error: function() {
+						console.log('fail');
+			
+					}
+				});
+			
+			}
+			
+			
+
+			var ids = new Array();
+
+			function getVideoList() {
+				// alert(222);
+				var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppVideo/getVeidoByTypeA';
+				// alert(urlString);
+				$.ajax({
+					type: "GET",
+					url: urlString,
+					dataType: "text", //数据类型为jsonp  
+					data: {
+						"typeA": typeA,
+						"typeB": typeB,
+						"sort": sort,
+						"level": level,
+						"pageSize": pageSS,
+						"pageNumber": pageNumber,
+						"memberid": localStorage.getItem("memberid"+APP_NAME),
+
+						"appid": "123",
+						"tokens": "123"
+					},
+					jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+
+					success: function(data) {
+						console.log(data);
+						// alert(data);
+						var obj = JSON.parse(getHttpDate(data, "getVeidoByTypeA"));
+						// var myinviteCode=obj.myinviteCode;
+						// var memberid=obj.id;
+						// var status = obj.count;
+						var oUl = document.getElementById('imageList');
+						if (pageNumber == 1) {
+							oUl.innerHTML = "";
+						}
+						if (obj.list.length < pageSS) {
+							isload = false;
+							document.getElementById("loading_v").innerHTML="已加载全部数据";
+						} else {
+							isload = true;
+							document.getElementById("loading_v").innerHTML="正在加载中……";
+							
+						}
+						var decrypt = new JSEncrypt();
+						decrypt.setPrivateKey('-----BEGIN RSA PRIVATE KEY-----' + PRIVATE_KEY + '-----END RSA PRIVATE KEY-----');
+
+						for (var i = 0; i < obj.list.length; i++) {
+							var image1 = "../images/videotype_small1.png";
+							if (obj.list[i].level == 1) {
+								image1 = "../images/videotype_small0.png";
+							}
+
+							var image2 = "../images/collection_small0.png";
+							if (obj.list[i].iscoll != "0") {
+								image2 = "../images/collection_small1.png";
+							}
+							ids.push(obj.list[i].iscoll);
+
+
+							var uncrypted2 = VIDEO_PATH + decrypt.decrypt(obj.list[i].show_icon);
+
+							var name = obj.list[i].filename;
+							if (name.length > 22) {
+								name = name.substring(0, 22) + "…"
+							}
+							// alert(uncrypted2);
+							var intt = "<div class=\"div-relative\"  onclick=\"toPlayer(\'" + obj.list[i].id +"\',\'" + obj.list[i].videourl  + "\');\">" +
+								"<div class=\"div-a\"><img src=\"" + uncrypted2 + "\" class=\"image1\" /></div>" +
+								"<div class=\"div-b\"><img src=\"" + image1 + "\" class=\"image2\" /></div>" +
+								"<div class=\"div-c\"><img src=\"" + image2 + "\" class=\"image3\"  id=\"imagee_" + i +
+								"\" onclick=\"to_coll(\'" + obj.list[i].id +
+								"\'," + i + ");\"/></div>" +
+								"<div class=\"div-d\">" +
+								// "<img src=\"../images/note.png\" class=\"image4\" />" +
+								// "<font size=\"3\" color=\"#FFFFFF\">" + timestampToTime(obj.list[i].date_entered.time) + "</font>" +
+								 "<img src=\"../images/spark.png\" class=\"image4\" />" +
+								"<font size=\"2.5\" color=\"#FFFFFF\">" + obj.list[i].hots + "%</font>" +
+								"<div class=\"divtime\">"+
+								"<img src=\"../images/ic_time_name.png\" class=\"image5\" />" +
+								"<font size=\"2.5\" color=\"#FFFFFF\"> " + obj.list[i].video_length + "</font>" +
+								"</div>" +
+								"</div>" +
+								"<div class=\"div-e\">" +
+								name +
+								"</div>" +
+								"</div>";
+
+							var li = document.createElement("li");
+							li.innerHTML = intt;	
+							oUl.appendChild(li);
+							
+							var index=Math.floor(Math.random()*objBean.list.length);
+							while(objBean.list[index].is_main!=0){
+								index=Math.floor(Math.random()*objBean.list.length);
+							}
+							if(i%16==9){
+								var intt = "<div class=\"div-relative\">" +
+									"<div class=\"div-a\"><img src=\"" + LOC_LOCPIC_PATH+objBean.list[index].imageUrl + "\" class=\"image1\"  onclick=\"toPlayer111(\'" + objBean.list[index].to_url +
+										"\');\"/></div>" +
+																		
+									"<div class=\"div-e\">" +
+									objBean.list[index].comment +
+									"</div>" +
+									"</div>";
+								
+								var li = document.createElement("li");
+								li.innerHTML = intt;	
+								oUl.appendChild(li);
+							}
+							
+						}
+
+
+					},
+					error: function() {
+						console.log('fail');
+						// alert('failAddMember');
+						// alert("获取用户信息失败");
+
+					}
+				});
+			}
+			
+			function toPlayer111(url){
+				window.open(url);
+			}
+			
+
+			var is_coll = false;
+
+			function to_coll(id, index) {
+				is_coll = true;
+				// alert(id + ";;;" + index);
+				toColl(id, index);
+			}
+
+			function toColl(id, index) {
+				var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppMembers/addCollect';
+				var type = 1;
+				if (ids[index] != "0") {
+					type = 0;
+				}
+				// alert(type);
+				$.ajax({
+					type: "GET",
+					url: urlString,
+					dataType: "text", //数据类型为jsonp  
+					data: {
+						"type": "video",
+						"collectid": id,
+						"membersid": localStorage.getItem("memberid"+APP_NAME),
+						"status": type,
+						"appid": "123",
+						"tokens": "123"
+					},
+					jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+
+					success: function(data) {
+						console.log(data);
+						// alert(data);
+						var obj = JSON.parse(getHttpDate(data, "addCollect"));
+
+						if (obj.status == 1) {
+							if (type == 0) {
+								// alert(1111);
+								ids[index] = "0";
+								$('#imagee_' + index).attr("src", "../images/collection_0.png");
+								mui.toast('取消收藏成功');
+								// document.getElementById('imagee_'+index).src="../images/collection_0.png";
+							} else {
+								// alert(2222);
+								ids[index] = "1";
+								$('#imagee_' + index).attr("src", "../images/collection_1.png");
+								mui.toast('收藏成功');
+								// document.getElementById('imagee_'+index).src="../images/collection_1.png";
+
+							}
+
+						
+						}
+						is_coll = false;
+
+					},
+					error: function() {
+						console.log('fail');
+						// alert('failAddMember');
+						// alert("获取用户信息失败");
+						is_coll = false;
+					}
+				});
+			}
+
+
+			function setCss(numberItem) {
+				// var obj = document.getElementById("tab1");
+				// obj.setAttribute("class", "address_li");
+				// var obj = document.getElementById("tab2");
+				// obj.setAttribute("class", "address_li");
+				// var obj = document.getElementById("tab3");
+				// obj.setAttribute("class", "address_li");
+				// var obj = document.getElementById("tab4");
+				// obj.setAttribute("class", "address_li");
+				// var obj = document.getElementById("tab5");
+				// obj.setAttribute("class", "address_li");
+				// var obj = document.getElementById("tab6");
+				// obj.setAttribute("class", "address_li");
+
+				// var obj = document.getElementById("tab" + (numberItem + 1));
+				// obj.setAttribute("class", "active");
+				document.getElementById("tab1").className = "aaa1";
+				document.getElementById("tab2").className = "aaa1";
+				document.getElementById("tab3").className = "aaa1";
+				document.getElementById("tab4").className = "aaa1";
+				document.getElementById("tab5").className = "aaa1";
+				document.getElementById("tab6").className = "aaa1";
+				document.getElementById("tab" + (numberItem + 1)).className = "aaa";
+				if (numberItem == 0 || numberItem == 1) {
+					$("#toppp").scrollLeft(0);
+				} else if (numberItem == 2) {
+					$("#toppp").scrollLeft(itemWidth * 0.5);
+				} else if (numberItem == 3) {
+					$("#toppp").scrollLeft(itemWidth * 1.5);
+				} else {
+					$("#toppp").scrollLeft(widthh - itemWidth);
+				}
+
+			}
+
+
+
+			function toSearch() {
+				top.location.href = "search.html";
+			}
+
+			// function toPlayer(id) {
+			// 	if (is_coll == false)
+			// 		window.location.href = "player.html?id=" + id+"&type=2";
+			// }
+			
+			function toPlayer(id,videourl) {
+				if (is_coll == false)
+					window.location.href = "player.html?id=" + id + "&type=2&videourl="+videourl;
+			
+			}
+
+			function changeTab1(numberItem) {
+				setCss(numberItem);
+				switch (numberItem) {
+					case 0:
+						if (typeB == "" && level == 0) {
+							return;
+						}
+						typeB = "";
+						pageNumber = 1;
+						level = 0;
+						isload = false;
+						ids = new Array();
+						document.body.scrollTop = 0;
+						getVideoList();
+						break;
+					case 1:
+						if (typeB == "" && level == 1) {
+							return;
+						}
+						typeB = "";
+						pageNumber = 1;
+						level = 1;
+						isload = false;
+						ids = new Array();
+						document.body.scrollTop = 0;
+						getVideoList();
+						break;
+					case 2:
+						if (typeB == "gc") {
+							return;
+						}
+						typeB = "gc";
+						pageNumber = 1;
+						level = 0;
+						isload = false;
+						ids = new Array();
+						document.body.scrollTop = 0;
+						getVideoList();
+						break;
+					case 3:
+						if (typeB == "sw") {
+							return;
+						}
+						typeB = "sw";
+						pageNumber = 1;
+						level = 0;
+						isload = false;
+						ids = new Array();
+						document.body.scrollTop = 0;
+						getVideoList();
+						break;
+					case 4:
+						if (typeB == "ns") {
+							return;
+						}
+						typeB = "ns";
+						pageNumber = 1;
+						level = 0;
+						isload = false;
+						ids = new Array();
+						document.body.scrollTop = 0;
+						getVideoList();
+						break;
+					case 5:
+						if (typeB == "xs") {
+							return;
+						}
+						typeB = "xs";
+						pageNumber = 1;
+						level = 0;
+						isload = false;
+						ids = new Array();
+						document.body.scrollTop = 0;
+						getVideoList();
+						break;
+				}
+			}
+
+			function changeTab(numberItem) {
+				switch (numberItem) {
+					case 0:
+						window.location.href = "home.html";
+						break;
+
+					case 1:
+						// document.getElementById("myframe").src = "html/little_video.html ";
+						// window.location.href = "little_video.html";
+						break;
+
+					case 2:
+						window.location.href = "classification.html";
+						// document.getElementById("myframe").src = "html/classification.html ";
+						break;
+
+					case 3:
+						window.location.href = "collection.html";
+						// document.getElementById("myframe").src = "html/collection.html ";
+						break;
+					case 4:
+						window.location.href = "setting.html";
+						// document.getElementById("myframe").src = "html/setting.html ";
+						break;
+				}
+			};
+
+
+			// $("body").scroll(function() {
+			// 	// mui.toast('進來了');
+			// 	var scrollTop = $(this).scrollTop(); //滚动条距离顶部的高度
+			// 	var scrollHeight = $(document).height(); //当前页面的总高度
+			// 	var clientHeight = $(this).height(); //当前可视的页面高度
+			// 	mui.toast("top:"+scrollTop+",doc:"+scrollHeight+",client:"+clientHeight);
+			// 	if (scrollTop + clientHeight >= scrollHeight-50) { //距离顶部+当前高度 >=文档总高度 即代表滑动到底部 
+			// 		//滚动条到达底部
+			// 		if (isload == true) {
+			// 			pageNumber += 1;
+			// 			getVideoList();
+			// 		}
+			// 	} else if (scrollTop <= 0) {
+			// 		//滚动条到达顶部
+			// 		// alert(4);
+			// 		//滚动条距离顶部的高度小于等于0 TODO
+
+			// 	}
+			// });
+			function ToAd(url) {
+				window.location.href = url;
+			}
+			
+			function ToZhuanTi(url) {
+				mui.toast("敬请期待");
+			}
+			// $("body").scroll(function() {
+			
+			// 	var scrollTop = $(this).scrollTop(); //滚动条距离顶部的高度
+			// 	var scrollHeight = $(document).height(); //当前页面的总高度
+			// 	var clientHeight = $(this).height(); //当前可视的页面高度
+			// 	// mui.toast("top:"+scrollTop+",doc:"+scrollHeight+",client:"+clientHeight);
+			// 	if (scrollTop + clientHeight >= scrollHeight - 50) { //距离顶部+当前高度 >=文档总高度 即代表滑动到底部 
+			// 		//滚动条到达底部
+			// 		if (isload == true) {
+			// 			// mui.toast(1);
+			// 			pageNumber += 1;
+			// 			getVideoList();
+			// 		} else {
+			// 			// mui.toast(2);
+			// 		}
+			// 	} else if (scrollTop <= 0) {
+			// 		//滚动条到达顶部
+			// 		// alert(4);
+			// 		//滚动条距离顶部的高度小于等于0 TODO
+			
+			// 	}
+			// });
+			
+			window.onscroll = function() {
+				//变量scrollTop是滚动条滚动时，距离顶部的距离
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				//变量windowHeight是可视区的高度
+				var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+				//变量scrollHeight是滚动条的总高度
+				var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+				//滚动条到底部的条件
+				if (scrollTop + windowHeight > scrollHeight - 50) {
+					//写后台加载数据的函数
+					// console.log("距顶部" + scrollTop + "可视区高度" + windowHeight + "滚动条总高度" + scrollHeight);
+					if (isload == true) {
+						pageNumber += 1;
+						getVideoList();
+					}
+				}
+				// mui.toast(scrollTop+";;"+windowHeight+";;"+scrollHeight);
+			}
+			
+		</script>
+		<script defer="defer" type="text/javascript" charset="UTF-8">
+			// alert(1111);
+			getVideoList();
+		</script>
+	</body>
+
+</html>
