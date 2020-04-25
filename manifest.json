@@ -3,6 +3,6 @@
   "short_name": "起点智能",
   "description": "拥有科技光环的自动赚米神器",
   "lang": "en-GB",
-  "scope": "/",
+  "scope": "/ios",
   "display": "standalone"
 }
