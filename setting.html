@@ -1,0 +1,122 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml">
+
+
+	<head>
+		<meta charset="UTF-8">
+		<title>撸SIR</title>
+		<link rel="shortcut icon" href="../images/mydefaultheader.png" />
+		<link rel="apple-touch-icon-precomposed" href="../images/mydefaultheader.png">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="http://www.u1u20.com/lusir/css/mui.css" rel="stylesheet" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<link rel="manifest" href="manifest.json">
+
+		<script src="http://www.u1u20.com/lusir/js/mui.js"></script>
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<link href="http://www.u1u20.com/lusir/css/classification_index.css" rel="stylesheet" />
+		
+	</head>
+
+	<body style="margin: 0;background-color: #F8F8F8;">
+
+		<header class="mui-bar mui-bar-nav" style="margin: 0;background: #FFFFFF;">
+
+			<div id="tab_top">
+				<a id="tab1" class="tab_txt_1" onclick="changeTab1(0)"><strong>女優</strong></a>
+				<a id="tab2" class="tab_txt" onclick="changeTab1(1)"><strong>AV</strong></a>
+				<a id="tab3" class="tab_txt" onclick="changeTab1(2)"><strong>小視頻</strong></a>
+
+			</div>
+		</header>
+		<div style="height: 45px;"></div>
+
+		<iframe src="https://www.baidu.com/" id="myframe1"  width="100%"  height='100%'
+		 frameborder="0"  marginheight="0" marginwidth="0"
+		 ></iframe>
+
+			<script src="http://www.u1u20.com/lusir/js/mui.min.js "></script>
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item" data-id="home" onclick="changeTab(0)">
+					<span class="mui-icon mui-icon-home" id="home_iv"></span>
+					<span class="mui-tab-label">&ensp;首頁</span>
+				</a>
+				<a class="mui-tab-item" data-id="contact" onclick="changeTab(1)">
+					<span class="mui-icon mui-icon-phone" id="video_iv"></span>
+					<span class="mui-tab-label">&ensp;小視頻</span>
+				</a>
+				<a class="mui-tab-item" data-id="email" onclick="changeTab(2)">
+					<span class="mui-icon mui-icon-email" id="class_iv"></span>
+					<span class="mui-tab-label">&ensp;分類</span>
+				</a>
+				<a class="mui-tab-item mui-active" data-id="setting" onclick="changeTab(3)">
+					<span class="mui-icon mui-icon-gear-click" id="coll_iv"></span>
+					<span class="mui-tab-label">&ensp;收藏</span>
+				</a>
+				<a class="mui-tab-item" data-id="setting1" onclick="changeTab(4)">
+					<span class="mui-icon mui-icon-gear1" id="me_iv"></span>
+					<span class="mui-tab-label">&ensp;我的</span>
+				</a>
+			</nav>
+
+			<script type="text/javascript">
+
+				function changeTab1(numberItem) {
+					setCss(numberItem);
+					switch (numberItem) {
+						case 0:
+							document.getElementById("myframe1").src = "coll_av_list.html";
+							break;
+
+						case 1:
+							document.getElementById("myframe1").src = "coll_moive.html";
+							break;
+
+						case 2:
+							document.getElementById("myframe1").src = "coll_little_video.html";
+							break;
+
+					}
+				};
+
+				function changeTab(numberItem) {
+					switch (numberItem) {
+						case 0:
+							window.location.href = "home.html";
+							break;
+
+						case 1:
+							window.location.href = "little_video.html";
+							break;
+
+						case 2:
+							window.location.href = "classification.html";
+							break;
+
+						case 3:
+							// window.location.href = "collection.html";
+							break;
+						case 4:
+							window.location.href = "setting.html";
+							break;
+					}
+				};
+
+				function setCss(numberItem) {
+					var obj = document.getElementById("tab1");
+					obj.setAttribute("class", "tab_txt");
+					var obj = document.getElementById("tab2");
+					obj.setAttribute("class", "tab_txt");
+					var obj = document.getElementById("tab3");
+					obj.setAttribute("class", "tab_txt");
+					var obj = document.getElementById("tab" + (numberItem + 1));
+					obj.setAttribute("class", "tab_txt_1");
+
+				}
+			</script>
+
+
+	</body>
+
+</html>
