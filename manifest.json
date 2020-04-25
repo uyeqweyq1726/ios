@@ -2,11 +2,6 @@
   "name": "My App Name",
   "short_name": "My App",
   "lang": "en-US",
-  "display": "standalone",
-  "orientation": "landscape",
-  "start_url": "/ios/",
-  "permissions": [ 
-    "unlimitedStorage",
-    "fullscreen"
-   ]
+  "scope": "/ios/",
+  "display": "standalone"
 }
