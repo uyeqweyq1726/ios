@@ -12,13 +12,6 @@
     <meta name="mobile-web-app-status-bar-style" content="black" />
 	<meta name="referrer" content="never">
 	<link rel="manifest" href="manifest.json">
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script>
-		$("a").click(function (event) {
-    event.preventDefault();
-    window.location = $(this).attr("href");
-});
-		</script>
 </head>
 <body>
 
@@ -34,7 +27,7 @@
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
     <p><a href="b.html">点击链接 B</a></p>
-    <p><a href="c.html">点击链接 C</a></p>
+    <p><a onclick="window.location='c.html'">点击链接 C</a></p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
 <p>哈哈哈哈啊</p>
