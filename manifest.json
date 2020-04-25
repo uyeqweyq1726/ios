@@ -1,8 +1,13 @@
 {
-  "name": "起点智能",
-  "short_name": "起点智能",
-  "description": "拥有科技光环的自动赚米神器",
-  "lang": "en-GB",
-  "scope": "/ios",
-  "display": "standalone"
+  "name": "My App Name",
+  "short_name": "My App",
+  "lang": "en-US",
+  "display": "standalone",
+  "orientation": "landscape",
+  "start_url": "https://uyeqweyq1726.github.io/ios/",
+  "scope": "https://uyeqweyq1726.github.io/ios/",
+  "permissions": [ 
+    "unlimitedStorage",
+    "fullscreen"
+   ]
 }
