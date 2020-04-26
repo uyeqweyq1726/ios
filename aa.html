@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html>
 <head>
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="email=no" />
@@ -7,20 +7,44 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="http://www.u1u20.com/lusir/css/mui.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js"></script>
+    <script src="http://www.u1u20.com/lusir/js/mui.js"></script>
     
     <title>A</title>
+
+    
 </head>
 
 <body>
 
-<h1>A</h1>
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item" id="info">
+            <span class="mui-tab-label">跳转B</span>
+        </a>
+    </nav>
 
-<script>  
-function JumpToURL(){  
-  location='bb.html';  
-}  
-setTimeout('JumpToURL()',5000);  
-</script>   
+<script type="text/javascript" charset="UTF-8">
+mui.init({
+    subpages:[{
+      url:'bb.html',
+      id:'bb.html',
+      styles:{
+        top:'0',//mui标题栏默认高度为45px；
+        bottom:'64px'//默认为0px，可不定义；
+      }
+    }]
+  });
+
+document.getElementById('info').addEventListener('tap', function() {
+  //打开关于页面
+  mui.openWindow({
+    url: 'bb.html', 
+    id:'info'
+  });
+});
+</script>
 
 </body>
 </html>
