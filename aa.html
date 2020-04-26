@@ -1,28 +1,153 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <head>
+        <meta charset="UTF-8">
+        <title>撸SIR</title>
+        <link rel="shortcut icon" href="../images/mydefaultheader.png" />
+        <link rel="apple-touch-icon-precomposed" href="../images/mydefaultheader.png">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link href="http://www.u1u20.com/lusir/css/mui.css" rel="stylesheet" />
+        <link href="http://www.u1u20.com/lusir/css/index.css" rel="stylesheet" />
+        <meta name="referrer" content="never">
+        <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+        
+        <script src="http://www.u1u20.com/lusir/js/jquery-3.4.1.min.js"></script>
+        <script src="http://www.u1u20.com/lusir/js/jquery.mobile-1.4.5.js"></script>
+        <script src="https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js"></script>
+        <script src="http://www.u1u20.com/lusir/js/mui.js"></script>
+        <link rel="manifest" href="http://www.u1u20.com/lusir/manifest.json">
 
-    <meta name="referrer" content="never">
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                height: auto;
+            }
 
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+            .clearfix {
+                *zoom: 1;
+            }
 
-    <link href="https://cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.min.css" rel="stylesheet">
+            ul,
+            li {
+                list-style-type: none;
+            }
 
-    <link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" rel="stylesheet" />
-    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
-    
-    <title>A</title>
+            /* 去掉点击a标签背景色 */
+            a {
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+                -webkit-user-select: none;
+                -moz-user-focus: none;
+                -moz-user-select: none;
+            }
 
-</head>
+            .head_nav_wrap {
+                height: 40px;
+                position: relative;
+                z-index: 10;
+                margin: 0 0px;
+                overflow: hidden;
+                background-color: #fff;
+            }
 
-<body>
+            .head_nav {
+                height: 50px;
+                font-size: 18px;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
 
-    <script type="text/javascript" charset="UTF-8">
+            .head_nav>li {
+                -webkit-box-flex: 0;
+                -webkit-flex: none;
+                -ms-flex: none;
+                flex: none;
+                padding-top: 4px;
+            }
+
+            .head_nav a {
+                display: block;
+                position: relative;
+                line-height: 38px;
+                color: #222;
+                text-decoration: none
+            }
+
+            .head_nav>li.active a {
+                color: #E67BFF;
+                background: url(../images/line1.png) no-repeat;
+                background-position: bottom;
+
+            }
+
+            .address_li {
+                color: #333333;
+                background: #00000000;
+            }
+
+            .aaa {
+                width: 80px;
+                display: inline-block;
+                text-align: center;
+                line-height: 38px;
+                height: 40px;
+                font-size: 18px;
+                font-family: "PingFangSC-Semibold, sans-serif";
+                margin: 0;
+                background: url(../images/line2.png) no-repeat;
+                background-position: bottom;
+
+            }
+
+            .aaa1 {
+                width: 80px;
+                display: inline-block;
+                text-align: center;
+                height: 40px;
+                margin: 0;
+                line-height: 38px;
+                font-family: "PingFangSC-Semibold, sans-serif";
+                font-size: 18px;
+                color: #333333;
+
+            }
+
+            /*核心代码*/
+            #toppp::-webkit-scrollbar {
+                /*滚动条整体样式*/
+                width: 4px;
+                /*高宽分别对应横竖滚动条的尺寸*/
+                height: 0px;
+            }
+
+            /* #toppp::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            }
+
+            #toppp::-webkit-scrollbar-track {
+                /*滚动条里面轨道*/
+                -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                border-radius: 0;
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+            /*核心代码*/
+        </style>
+    </head>
+
+    <body style="margin: 0;background-color: #FFFFFF;hoverflow:scroll;height: auto;">
+
+        <script type="text/javascript" charset="UTF-8">
                     // mui.toast(window.navigator.standalone);
                     var codeee = "";
                     var isDesk = true;
@@ -47,20 +172,220 @@
                                     window.location.replace("../start.html?code=" + getQueryString("code"));
                                 }
                             }else{
+                                // if(localStorage.getItem("memberid")!=null
+                                // &&localStorage.getItem("memberid")!=""
+                                // &&localStorage.getItem("memberid")!=undefined){
+                                    // localStorage.setItem("memberid"+APP_NAME,localStorage.getItem("memberid"));
+                                // }
                             }
                         }
                     }
+        
+        
+                    function initAddDesk() {
+                        // var btnArray = ['知道了'];
+                        // mui.confirm('您需要添加撸SIR到桌面<br>才能使用撸SIR哦！', '溫馨提示', btnArray, function(e) {
+                        //  if (e.index == 0) {}
+        
+                        // });
+                    }
                 </script>
+                <div id="show_true" style="display: block;">
+        
+                <header class="mui-bar mui-bar-nav" style="margin: 0;background: #FFFFFF;padding-bottom: 0;">
+                    <div id="tab_top">
+                        <a id="show_right" style="line-height: 25px;text-align: center;float: right;margin-top: 11px;float: right;">
+                            <img src="../images/search.png" style="width: 20px;height: 20px;" onclick="toSearch();" />
+                        </a>
+        
+                        <div class="head_nav_wrap">
+                            <div id="toppp" style="width: 90%;background: #FFFFFF;
+                            margin: 0;padding: 0;display:inline-block; white-space: nowrap;overflow: auto;">
+                                <a id="tab0" class="aaa" onclick="changeTab1(-1);"><strong>最新</strong></a>
+                                <a id="tab1" class="aaa1" onclick="changeTab1(0);"><strong>有碼</strong></a>
+                                <a id="tab2" class="aaa1" onclick="changeTab1(1);"><strong>無碼</strong></a>
+                                <a id="tab3" class="aaa1" onclick="changeTab1(2);"><strong>VIP</strong></a>
+                                <a id="tab4" class="aaa1" onclick="changeTab1(3);"><strong>中字</strong></a>
+                                <a id="tab5" class="aaa1" onclick="changeTab1(4);"><strong>歐美</strong></a>
+                                <a id="tab6" class="aaa1" onclick="changeTab1(5);"><strong>動漫</strong></a>
+        
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <a style="height: 5px;background: #E67BFF;" ></a>
+                        </div> -->
+                    </div>
+                </header>
+                <div style="height: 51px;"></div>
+        
+            <div id="slider" class="mui-slider" style="width: 96%;margin-left: 2%;margin-right: 2%;border-radius: 10px;">
+                    <div class="mui-slider-group mui-slider-loop" id="banner" style="height: 100px;">
+        
+                    </div>
+                    <div class="mui-slider-indicator" id="diandian">
+                        <!-- <div class="mui-indicator mui-active"></div>
+                        <div class="mui-indicator"></div>
+                        <div class="mui-indicator"></div>
+                        <div class="mui-indicator"></div> -->
+                    </div>
+                </div>
+                <!-- <a style="color: #333333; font-size: 14px;">廣告</a> -->
+                <div id="imageDiv" style="margin-top: 5px;">
+                    <ul class="imglist" id="imageList">
+        
+                    </ul>
+                </div>
+                <div id="loading_v" style="text-align: center;height: 40px;line-height: 40px;">
+                    正在加载中……
+                </div>
+        
+                
+                <div style="height: 55px;"></div>
+                <nav class="mui-bar mui-bar-tab">
+                    <a class="mui-tab-item mui-active" data-id="home" onclick="changeTab(0)">
+                        <span class="mui-icon mui-icon-home-click" id="home_iv"></span>
+                        <span class="mui-tab-label">&ensp;首頁</span>
+                    </a>
+                    <a class="mui-tab-item" data-id="contact" onclick="changeTab(1)">
+                        <span class="mui-icon mui-icon-phone" id="video_iv"></span>
+                        <span class="mui-tab-label">&ensp;小視頻</span>
+                    </a>
+                    <a class="mui-tab-item" data-id="email" onclick="changeTab(2)">
+                        <span class="mui-icon mui-icon-email" id="class_iv"></span>
+                        <span class="mui-tab-label">&ensp;分類</span>
+                    </a>
+                    <a class="mui-tab-item" data-id="setting" onclick="changeTab(3)">
+                        <span class="mui-icon mui-icon-gear" id="coll_iv"></span>
+                        <span class="mui-tab-label">&ensp;收藏</span>
+                    </a>
+                    <a class="mui-tab-item" data-id="setting1" onclick="changeTab(4)">
+                        <span class="mui-icon mui-icon-gear1" id="me_iv"></span>
+                        <span class="mui-tab-label">&ensp;我的</span>
+                    </a>
+                </nav>
+                </div>
+                
+                <div id="show_false" style="display: none;">
+                    <img src="../images/tips_img.jpg" style="width: 100%;height: auto;"/>
+                </div>
+        <script type="text/javascript" charset="UTF-8">
+            var isToAd = false;
 
 
-<a class="mui-tab-item mui-active" data-id="home" onclick="changeTab(1)">
-    <span class="mui-tab-label">&ensp;首頁</span>
-</a>
+            var show_false = document.getElementById("show_false");
+            var show_true = document.getElementById("show_true");
 
-</body>
+            if (isDesk) {
+                show_true.style.display = "inline";
+                show_false.style.display = "none";
 
-<script type="text/javascript">
-    function changeTab(numberItem) {
+                if (localStorage.getItem("lastAd"+APP_NAME) == null) {
+                    localStorage.setItem("lastAd"+APP_NAME, (new Date()).getTime());
+                    isToAd = true;
+                    window.location.replace("../index.html");
+                    // mui.toast(1);
+                } else {
+                    // mui.toast(((new Date()).getTime()-localStorage.getItem("lastAd"))+";;"+(1000*60*60*4));
+                    if ((new Date()).getTime() - localStorage.getItem("lastAd"+APP_NAME) > 1000 * 60 * 60 * 4) {
+                        localStorage.setItem("lastAd"+APP_NAME, (new Date()).getTime());
+                        isToAd = true;
+                        window.location.replace("../index.html");
+                        // mui.toast(2);
+                    } else {
+                        // mui.toast(3);
+                    }
+                }
+            } else {
+                show_true.style.display = "block";
+                show_false.style.display = "inline";
+            }
+
+            var typeA = "";
+            var typeB = "";
+            var pageNumber = 1;
+            var pageSS = 20;
+            var sort = "";
+            var level = 0;
+            var isload = false;
+            var widthh = document.body.clientWidth - 50;
+            // $(".active").width(widthh / 4);
+            // $(".address_li").width(widthh / 4);
+            var itemWidth = widthh / 4;
+
+            $("#toppp").width(widthh);
+            $(".aaa").width(itemWidth);
+            $(".aaa1").width(itemWidth);
+
+            var nowTime = time() + "ad"+APP_NAME;
+            var nowTime1 = time() + "toast";
+            var objBean = null;
+            if (localStorage.getItem(nowTime) == null) {
+                getAdList();
+                getService();
+            } else {
+                console.log("结果："+localStorage.getItem(nowTime));
+                if(localStorage.getItem(nowTime).startsWith("{")&&localStorage.getItem(nowTime).endsWith("}")){
+                    objBean = JSON.parse(localStorage.getItem(nowTime));
+                    initAd();
+                }else{
+                    getAdList();
+                }
+                
+            }
+            // if (isToAd == false) {
+            //  var nowDialog = time() + "dialog";
+            //  if (localStorage.getItem(nowDialog) == null) {
+            //      localStorage.setItem(nowDialog, true);
+            //      var btnArray = ['查看教程', '知道了'];
+            //      mui.confirm('您可以添加撸SIR到手機桌面<br>以便下次快速啟動！', '溫馨提示', btnArray, function(e) {
+            //          if (e.index == 1) {
+            //              // info.innerText = '你刚确认MUI是个好框架';
+            //          } else {
+            //              // info.innerText = 'MUI没有得到你的认可，继续加油'
+            //              window.location.href = "add_desk.html";
+            //          }
+            //      })
+            //  }
+
+            // }
+            // $("#top_title").width(widthh/5*7);
+            document.body.style.height = "auto";
+            var ids = new Array();
+
+            mui.init({
+                swipeBack: true //启用右滑关闭功能
+            });
+
+            function getService() {
+                $.ajax({
+                    type: "GET",
+                    url: 'http://202.79.172.68/services/AppSys/getUrlForDown?pro=' + APP_NAME,
+                    dataType: "text", //数据类型为jsonp  
+                    jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+                    success: function(data) {
+                        console.log(data);
+                        var obj = JSON.parse(getHttpDate(data, "getUrlForDown"));
+                        var decrypt = new JSEncrypt();
+                        decrypt.setPrivateKey('-----BEGIN RSA PRIVATE KEY-----' + PRIVATE_KEY + '-----END RSA PRIVATE KEY-----');
+                        var uncrypted2 = decrypt.decrypt(obj.ServerUrl);
+                        var uncrypted3 = decrypt.decrypt(obj.downUrl);
+                        var uncrypted4 = decrypt.decrypt(obj.email);
+                        localStorage.setItem("ServerUrl"+APP_NAME, uncrypted2);
+                        localStorage.setItem("kfurl"+APP_NAME, obj.kfurl);
+                        localStorage.setItem("downUrl"+APP_NAME, uncrypted3);
+                        localStorage.setItem("email"+APP_NAME, uncrypted4);
+                    },
+                    error: function() {
+                        console.log('fail');
+                        // alert('fail');
+                        // alert("获取服务器地址失败");
+                    }
+                });
+            }
+            // document.getElementById("head_nav").style.overflowX='-200px';
+            // $(".head_nav_wrap").scrollLeft(100);
+
+            function changeTab(numberItem) {
                 switch (numberItem) {
                     case 0:
                         if (!isDesk) {
@@ -71,7 +396,355 @@
                     case 1:
                         // document.getElementById("myframe").src = "html/little_video.html ";
                         if (isDesk) {
-                            window.location.href = "bb.html";
+                            window.location.href = "little_video.html";
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+
+                    case 2:
+                        if (isDesk) {
+                            window.location.href = "classification.html";
+                        } else {
+                            initAddDesk();
+                        }
+                        // document.getElementById("myframe").src = "html/classification.html ";
+                        break;
+
+                    case 3:
+                        if (isDesk) {
+                            window.location.href = "collection.html";
+
+                        } else {
+                            initAddDesk();
+                        }
+                        // document.getElementById("myframe").src = "html/collection.html ";
+                        break;
+                    case 4:
+                        if (isDesk) {
+                            window.location.href = "setting.html";
+                        } else {
+                            initAddDesk();
+                        }
+                        // document.getElementById("myframe").src = "html/setting.html ";
+                        break;
+                }
+            };
+
+            function getVideoList() {
+                // alert(222);
+                var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppVideo/getVeidoByTypeA';
+                // alert(urlString);
+                $.ajax({
+                    type: "GET",
+                    url: urlString,
+                    dataType: "text", //数据类型为jsonp  
+                    data: {
+                        "typeA": typeA,
+                        "typeB": typeB,
+                        "sort": sort,
+                        "level": level,
+                        "pageSize": pageSS,
+                        "pageNumber": pageNumber,
+                        "memberid": localStorage.getItem("memberid"+APP_NAME),
+                        "appid": "123",
+                        "tokens": "123"
+                    },
+                    jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+
+                    success: function(data) {
+                        console.log(data);
+                        // alert(data);
+                        var obj = JSON.parse(getHttpDate(data, "getVeidoByTypeA"));
+
+                        // var myinviteCode=obj.myinviteCode;
+                        // var memberid=obj.id;
+                        // var status = obj.count;
+                        // alert(1);
+                        
+                        var oUl = document.getElementById('imageList');
+                        if (pageNumber == 1) {
+                            oUl.innerHTML = "";
+                        }
+                        if (obj.list.length < pageSS) {
+                            isload = false;
+                            document.getElementById("loading_v").innerHTML = "已加载全部数据";
+                        } else {
+                            isload = true;
+                            document.getElementById("loading_v").innerHTML = "正在加载中……";
+
+
+                        }
+                        // alert(2);
+                        
+                        var decrypt = new JSEncrypt();
+                        decrypt.setPrivateKey('-----BEGIN RSA PRIVATE KEY-----' + PRIVATE_KEY + '-----END RSA PRIVATE KEY-----');
+
+                        for (var i = 0; i < obj.list.length; i++) {
+                        // alert(3+""+i);
+
+                            var image1 = "../images/videotype.png";
+                            if (obj.list[i].level == 1) {
+                                image1 = "../images/videotype_0.png";
+                            }
+
+                            var image2 = "../images/collection_0.png";
+                            // if(i==0)
+                            // alert(obj.list[i].iscoll);
+                            if (obj.list[i].iscoll != "0") {
+                                image2 = "../images/collection_1.png";
+                            }
+                            ids.push(obj.list[i].iscoll);
+
+                            var uncrypted2 = VIDEO_PATH + decrypt.decrypt(obj.list[i].show_icon);
+                            // alert(uncrypted2);
+                            var intt = "<div class=\"div-relative\"  >" +
+                                "<div class=\"div-a\"><img src=\"" + uncrypted2 + "\" class=\"image1\" onclick=\"toPlayer(\'" + obj.list[i].id +"\',\'" + obj.list[i].videourl +
+                                "\');\"/></div>" +
+                                "<div class=\"div-b\"><img src=\"" + image1 + "\" class=\"image2\" /></div>" +
+                                "<div class=\"div-c\"><img src=\"" + image2 + "\" class=\"image3\" id=\"imagee_" + i +
+                                "\" onclick=\"to_coll(\'" + obj.list[i].id +
+                                "\'," + i + ");\"/></div>" +
+                                "<div class=\"div-d\">" +
+                                "<img src=\"../images/note.png\" class=\"image4\" />" +
+                                "<font size=\"2.5\" color=\"#FFFFFF\">" + timestampToTime(obj.list[i].date_entered.time) + "</font>" +
+                                "<img src=\"../images/spark.png\" class=\"image4\" />" +
+                                "<font size=\"2.5\" color=\"#FFFFFF\"> " + obj.list[i].hots + "%</font>" +
+                                "<div class=\"divtime\">" +
+                                "<img src=\"../images/ic_time_name.png\" class=\"image5\" />" +
+                                "<font size=\"2.5\" color=\"#FFFFFF\"> " + obj.list[i].video_length + "</font>" +
+                                "</div>" +
+                                "</div>" +
+                                "<div class=\"div-e\">" +
+                                obj.list[i].filename +
+                                "</div>" +
+                                "</div>";
+
+                            if (objBean != undefined) {
+                                var index = Math.floor(Math.random() * objBean.list.length);
+                                // mui.toast("下表："+index);
+                                while (objBean.list[index].is_main != 3) {
+                                    index = Math.floor(Math.random() * objBean.list.length);
+                                }
+                                if (i % 10 == 9) {
+                                    intt += "<div class=\"div-relative_ad\"  >" +
+                                        "<div class=\"div-a\"><img src=\"" + LOC_LOCPIC_PATH + objBean.list[index].imageUrl +
+                                        "\" class=\"image1_ad\" onclick=\"toPlayer111(\'" + objBean.list[index].to_url +
+                                        "\');\"/></div>" +
+
+                                        "<div class=\"div-e_ad\">" +
+                                        objBean.list[index].comment +
+                                        "</div>" +
+                                        "</div>";
+                                }
+
+
+                                var li = document.createElement("li");
+                                li.innerHTML = intt;
+                                oUl.appendChild(li);
+                            }
+                        }
+
+
+                    },
+                    error: function() {
+                        console.log('fail');
+                        alert("shibai:" + data);
+
+                        // alert('failAddMember');
+                        // alert("获取用户信息失败");
+
+                    }
+                });
+            }
+            var is_coll = false;
+
+            function to_coll(id, index) {
+                is_coll = true;
+                // alert(id + ";;;" + index);
+                toColl(id, index);
+            }
+
+            function toColl(id, index) {
+                var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppMembers/addCollect';
+                var type = 1;
+                if (ids[index] != "0") {
+                    type = 0;
+                }
+                // alert(type);
+                $.ajax({
+                    type: "GET",
+                    url: urlString,
+                    dataType: "text", //数据类型为jsonp  
+                    data: {
+                        "type": "video",
+                        "collectid": id,
+                        "membersid": localStorage.getItem("memberid"+APP_NAME),
+                        "status": type,
+                        "appid": "123",
+                        "tokens": "123"
+                    },
+                    jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+
+                    success: function(data) {
+                        // console.log(data);
+                        // alert(data);
+                        var obj = JSON.parse(getHttpDate(data, "addCollect"));
+
+                        if (obj.status == 1) {
+                            if (type == 0) {
+                                // alert(1111);
+                                ids[index] = "0";
+                                $('#imagee_' + index).attr("src", "../images/collection_0.png");
+                                // document.getElementById('imagee_'+index).src="../images/collection_0.png";
+                                mui.toast('取消收藏成功');
+                            } else {
+                                // alert(2222);
+                                ids[index] = "1";
+                                $('#imagee_' + index).attr("src", "../images/collection_1.png");
+                                // document.getElementById('imagee_'+index).src="../images/collection_1.png";
+                                mui.toast('收藏成功');
+                            }
+
+
+                        }
+                        is_coll = false;
+
+                    },
+                    error: function() {
+                        console.log('fail');
+                        // alert('failAddMember');
+                        // alert("获取用户信息失败");
+                        is_coll = false;
+                    }
+                });
+            }
+
+
+            function changeTab1(numberItem) {
+                setCss(numberItem);
+                switch (numberItem) {
+                    case -1:
+                        if (isDesk) {
+                            if (typeA == "" && level == 0) {
+                                return;
+                            }
+                            typeA = "";
+                            pageNumber = 1;
+                            level = 0;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "inline";
+                            getVideoList();
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                    case 0:
+                        if (isDesk) {
+                            if (typeA == "ym") {
+                                return;
+                            }
+                            typeA = "ym";
+                            pageNumber = 1;
+                            level = 0;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "none";
+
+                            getVideoList();
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                    case 1:
+                        if (isDesk) {
+                            if (typeA == "wm") {
+                                return;
+                            }
+                            typeA = "wm";
+                            pageNumber = 1;
+                            level = 0;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "none";
+
+                            getVideoList();
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                    case 2:
+                        if (isDesk) {
+                            if (typeA == "" && level == 1) {
+                                return;
+                            }
+                            typeA = "";
+                            pageNumber = 1;
+                            level = 1;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "none";
+
+                            getVideoList();
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                    case 3:
+                        if (isDesk) {
+                            if (typeA == "zz") {
+                                return;
+                            }
+                            typeA = "zz";
+                            pageNumber = 1;
+                            level = 0;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "none";
+
+                            getVideoList();
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                    case 4:
+                        if (isDesk) {
+                            if (typeA == "om") {
+                                return;
+                            }
+                            typeA = "om";
+                            pageNumber = 1;
+                            level = 0;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "none";
+
+                            getVideoList();
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                    case 5:
+                        if (isDesk) {
+                            if (typeA == "kt") {
+                                return;
+                            }
+                            typeA = "kt";
+                            pageNumber = 1;
+                            level = 0;
+                            isload = false;
+                            ids = new Array();
+                            document.body.scrollTop = 0;
+                            document.getElementById("slider").style.display = "none";
+
+                            getVideoList();
                         } else {
                             initAddDesk();
                         }
@@ -79,6 +752,290 @@
                 }
             }
 
-</script>
+            function setCss(numberItem) {
+                // var obj = document.getElementById("tab1");
+                // obj.setAttribute("class", "address_li");
+                // var obj = document.getElementById("tab2");
+                // obj.setAttribute("class", "address_li");
+                // var obj = document.getElementById("tab3");
+                // obj.setAttribute("class", "address_li");
+                // var obj = document.getElementById("tab4");
+                // obj.setAttribute("class", "address_li");
+                // var obj = document.getElementById("tab5");
+                // obj.setAttribute("class", "address_li");
+                // var obj = document.getElementById("tab6");
+                // obj.setAttribute("class", "address_li");
+
+                // var obj = document.getElementById("tab" + (numberItem + 1));
+                // obj.setAttribute("class", "active");
+                document.getElementById("tab0").className = "aaa1";
+                document.getElementById("tab1").className = "aaa1";
+                document.getElementById("tab2").className = "aaa1";
+                document.getElementById("tab3").className = "aaa1";
+                document.getElementById("tab4").className = "aaa1";
+                document.getElementById("tab5").className = "aaa1";
+                document.getElementById("tab6").className = "aaa1";
+                document.getElementById("tab" + (numberItem + 1)).className = "aaa";
+                if (numberItem == 0 || numberItem == -1) {
+                    $("#toppp").scrollLeft(0);
+                } else if (numberItem == 1) {
+                    $("#toppp").scrollLeft(itemWidth * 0.5);
+                } else if (numberItem == 2) {
+                    $("#toppp").scrollLeft(itemWidth * 1.5);
+                } else if (numberItem == 3) {
+                    $("#toppp").scrollLeft(itemWidth * 2.5);
+                } else {
+                    $("#toppp").scrollLeft(widthh);
+                }
+            }
+
+
+            function toPlayer(id,videourl) {
+                if (is_coll == false)
+                    window.location.href = "player.html?id=" + id + "&type=1&videourl="+videourl;
+
+            }
+
+            function toSearch() {
+                if (isDesk) {
+                    top.location.href = "search.html";
+                } else {
+                    initAddDesk();
+                }
+            }
+
+            function toPlayer111(url) {
+                window.open(url);
+            }
+
+            window.onscroll = function() {
+                //变量scrollTop是滚动条滚动时，距离顶部的距离
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                //变量windowHeight是可视区的高度
+
+                var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                //变量scrollHeight是滚动条的总高度
+                var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+                //滚动条到底部的条件
+                if (scrollTop + windowHeight > scrollHeight - 50) {
+                    //写后台加载数据的函数
+                    // console.log("距顶部" + scrollTop + "可视区高度" + windowHeight + "滚动条总高度" + scrollHeight);
+                    if (isload == true) {
+                        pageNumber += 1;
+                        getVideoList();
+                    }
+                }
+                // mui.toast(scrollTop+";;"+windowHeight+";;"+scrollHeight);
+            }
+            if (isDesk) {
+                getUserInfo();
+            }
+
+            function getUserInfo() {
+                var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppMembers/getMemberByID';
+                // alert(urlString);
+                $.ajax({
+                    type: "GET",
+                    url: urlString,
+                    dataType: "text", //数据类型为jsonp  
+                    data: {
+                        "id": localStorage.getItem("memberid"+APP_NAME),
+                        "realname":returnCitySN["cip"]+returnCitySN["cid"],
+                        "appid": "123",
+                        "tokens": "123"
+                    },
+                    jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+
+                    success: function(data) {
+                        // console.log(data);
+                        // alert(data);
+                        var obj = JSON.parse(getHttpDate(data, "getMemberByID"));
+                        // var myinviteCode=obj.myinviteCode;
+                        // var memberid=obj.id;
+                        var status = obj.status;
+                        if (status == 1) {
+                            if (obj.message == "未找到用户，错误的用户ID/手机号" || "未找到用户，错误的用户ID" == obj.message) {
+                                window.location.href = "../start.html";
+                            } else {
+                                localStorage.setItem("myinviteCode"+APP_NAME, obj.member.invite_code);
+                                localStorage.setItem("memberid"+APP_NAME, obj.member.id);
+                                localStorage.setItem("vip_level"+APP_NAME, obj.member.vip_level);
+                                // localStorage.setItem("vip_level", 1);
+                                localStorage.setItem("countplay"+APP_NAME, obj.member.countplay);
+                                localStorage.setItem("paly_number"+APP_NAME, obj.member.paly_number);
+                                localStorage.setItem("membernmbr"+APP_NAME, obj.member.membernmbr);
+                                localStorage.setItem("membernmbr2"+APP_NAME, obj.member.membernmbr2);
+                                localStorage.setItem("membernmbr3"+APP_NAME, obj.member.membernmbr3);
+                                localStorage.setItem("membernmbr4"+APP_NAME, obj.member.membernmbr4);
+                                localStorage.setItem("bonus"+APP_NAME, obj.member.bonus);
+                                localStorage.setItem("save_code"+APP_NAME, obj.member.save_code);
+                                localStorage.setItem("user_mobile"+APP_NAME, obj.member.user_mobile);
+                                // initDate();
+                            }
+                        }
+
+                    },
+                    error: function() {
+                        console.log('fail');
+                        // alert('failAddMember');
+                        // alert("获取用户信息失败");
+                    }
+                });
+            }
+
+            function getAdList() {
+                var urlString = localStorage.getItem("ServerUrl"+APP_NAME) + '/services/AppSys/getAdvert';
+                // alert(urlString);
+                $.ajax({
+                    type: "GET",
+                    url: urlString,
+                    dataType: "text", //数据类型为jsonp  
+                    data: {
+                        "id": localStorage.getItem("memberid"+APP_NAME),
+                        "appid": "123",
+                        "tokens": "123"
+                    },
+                    jsonp: "jsonpCallback", //服务端用于接收callback调用的function名的参数
+
+                    success: function(data) {
+                        console.log(data);
+                        // alert(data);
+                        var Stringg = getHttpDate(data, "getAdvert");
+                        localStorage.setItem(nowTime, Stringg);
+                        objBean = JSON.parse(localStorage.getItem(nowTime));
+
+                        initAd();
+
+                    },
+                    error: function() {
+                        console.log('fail');
+                        // alert('failAD');
+                    }
+                });
+
+            }
+
+            function initAd() {
+                var banner = document.getElementById("banner");
+                var diandian = document.getElementById("diandian");
+
+
+                var strbanner = "";
+                if (objBean.list!= undefined) {
+                    var path = LOC_LOCPIC_PATH + objBean.list[0].imageUrl;
+                    for (var i = 0; i < objBean.list.length; i++) {
+                        if (objBean.list[i].is_main == 3) {
+                            path = LOC_LOCPIC_PATH + objBean.list[i].imageUrl;
+                        }
+                    }
+                    if (objBean.list.length > 0) {
+                        strbanner = "<div class=\"mui-slider-item mui-slider-item-duplicate\">" +
+                            "<a href=\"#\">" +
+                            "<img src=\"" + path + "\"  style=\"height:120px;object-fit: cover;\">" +
+                            "</a>" +
+                            "</div>";
+                    }
+                    var diandianString = "";
+                    var isFirst = true;
+                    for (var i = 0; i < objBean.list.length; i++) {
+                        var objjj = objBean.list[i];
+
+                        //LOC_LOCPIC_PATH+objjj.imageUrl
+                        if (objjj.is_main == 3) {
+                            strbanner += "<div class=\"mui-slider-item\">" +
+                                "<a onclick=\"ToAd(\'" + objjj.to_url + "\');\">" +
+                                "<img src=\"" + LOC_LOCPIC_PATH + objjj.imageUrl + "\" style=\"height:100px;border-radius:10px;object-fit: cover;\">" +
+                                "</a></div>";
+                            if (isFirst) {
+                                diandianString += "<div class=\"mui-indicator mui-active\"></div>";
+                                isFirst = false;
+                            }  else {
+                                diandianString += "<div class=\"mui-indicator\"></div>";
+                        
+                            }
+                        
+                        } else if (objjj.is_main == 4) {
+                            strbanner += "<div class=\"mui-slider-item\">" +
+                                "<a onclick=\"ToZhuanTi(\'" + objjj.videoType + "\',\'" + objjj.to_url + "\');\">" +
+                                "<img src=\"" + LOC_LOCPIC_PATH + objjj.imageUrl + "\" style=\"height:100px;border-radius:10px;object-fit: cover;\">" +
+                                "</a></div>"
+                            if (isFirst) {
+                                diandianString += "<div class=\"mui-indicator mui-active\"></div>";
+                                isFirst = false;
+                            } else {
+                                diandianString += "<div class=\"mui-indicator\"></div>";
+                        
+                            }
+                        
+                        } else if (objjj.is_main == 7) {
+                            strbanner += "<div class=\"mui-slider-item\">" +
+                                "<a onclick=\"ToNvYoou(\'" + objjj.actorID + "\');\">" +
+                                "<img src=\"" + LOC_LOCPIC_PATH + objjj.imageUrl + "\" style=\"height:100px;border-radius:10px;object-fit: cover;\">" +
+                                "</a></div>"
+                            if (isFirst) {
+                                diandianString += "<div class=\"mui-indicator mui-active\"></div>";
+                                isFirst = false;
+                            } else {
+                                diandianString += "<div class=\"mui-indicator\"></div>";
+                        
+                            }
+                        
+                        }
+                    }
+
+                    if (objBean.list.length > 0) {
+                        strbanner += "<div class=\"mui-slider-item mui-slider-item-duplicate\">" +
+                            "<a href=\"#\">" +
+                            "<img src=\"" + path + "\"  style=\"height:100px;object-fit: cover;\">" +
+                            "</a>" +
+                            "</div>";
+                    }
+                    banner.innerHTML = strbanner;
+                    diandian.innerHTML = diandianString;
+
+                    var slider = mui("#slider");
+                    slider.slider({
+                        interval: 2000
+                    });
+                    slider.stopped = false;
+                    
+                        for (var i = 0; i < objBean.list.length; i++) {
+                            // localStorage.setItem(nowTime1,"");
+                            if ((localStorage.getItem(nowTime1) == null || localStorage.getItem(nowTime1) == "")&& isDesk ) {
+                                if (objBean.list[i].is_main == 2) {
+                                    localStorage.setItem(nowTime1,"yes")
+                                    var btnArray = ['知道了'];
+                                    mui.confirm(objBean.list[i].comment, '溫馨提示', btnArray, function(e) {
+                                    if (e.index == 0) {}
+                                    
+                                    }); 
+                                }
+                            } 
+                            
+                        }
+                        
+                    
+
+
+                }
+
+            }
+
+            function ToAd(url) {
+                window.open(url);
+            }
+
+            function ToZhuanTi(url) {
+                mui.toast("敬请期待");
+            }
+        </script>
+        <script defer="defer" type="text/javascript" charset="UTF-8">
+            // alert(1111);
+            if (isDesk) {
+                getVideoList();
+
+            }
+        </script>
+    </body>
 
 </html>
