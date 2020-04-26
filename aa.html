@@ -18,33 +18,9 @@
 </head>
 
 <body>
-
-    <nav class="mui-bar mui-bar-tab">
-        <a class="mui-tab-item" id="info">
-            <span class="mui-tab-label">跳转B</span>
-        </a>
-    </nav>
-
-<script type="text/javascript" charset="UTF-8">
-mui.init({
-    subpages:[{
-      url:'bb.html',
-      id:'bb.html',
-      styles:{
-        top:'0',//mui标题栏默认高度为45px；
-        bottom:'64px'//默认为0px，可不定义；
-      }
-    }]
-  });
-
-document.getElementById('info').addEventListener('tap', function() {
-  //打开关于页面
-  mui.openWindow({
-    url: 'bb.html', 
-    id:'info'
-  });
-});
-</script>
+    <iframe name="a1"></iframe>
+    
+<a href="bb.html" target="a1">零度博客</a>
 
 </body>
 </html>
