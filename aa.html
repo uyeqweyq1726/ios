@@ -52,7 +52,33 @@
                     }
                 </script>
 
-<a href="bb.html"><h1>AAA</h1></a>
+
+<a class="mui-tab-item mui-active" data-id="home" onclick="changeTab(1)">
+    <span class="mui-tab-label">&ensp;首頁</span>
+</a>
 
 </body>
+
+<script type="text/javascript">
+    function changeTab(numberItem) {
+                switch (numberItem) {
+                    case 0:
+                        if (!isDesk) {
+                            initAddDesk();
+                        }
+                        break;
+
+                    case 1:
+                        // document.getElementById("myframe").src = "html/little_video.html ";
+                        if (isDesk) {
+                            window.location.href = "bb.html";
+                        } else {
+                            initAddDesk();
+                        }
+                        break;
+                }
+            }
+
+</script>
+
 </html>
