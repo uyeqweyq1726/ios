@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="format-detection" content="email=no" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+    <meta name="referrer" content="never">
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="https://cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.min.css" rel="stylesheet">
+
     <link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" rel="stylesheet" />
-    <script src="https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js"></script>
     <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
     
     <title>A</title>
 
-    
 </head>
 
 <body>
-    <iframe name="a1"></iframe>
-    
-<a href="bb.html" target="a1">零度博客</a>
+
+    <script type="text/javascript" charset="UTF-8">
+                    // mui.toast(window.navigator.standalone);
+                    var codeee = "";
+                    var isDesk = true;
+                    var isFirst = true;
+                    codeee = getQueryString("code");
+                    if (window.navigator.standalone == undefined) {
+                        isDesk = false;
+                        initAddDesk();
+                    } else {
+                        if (window.navigator.standalone == false) {
+                            isDesk = false;
+                            initAddDesk();
+        
+                        } else {
+                            if (localStorage.getItem("memberid"+APP_NAME) == null 
+                            || localStorage.getItem("memberid"+APP_NAME) == undefined) {
+                                if(localStorage.getItem("memberid")!=null
+                                &&localStorage.getItem("memberid")!=""
+                                &&localStorage.getItem("memberid")!=undefined){
+                                    localStorage.setItem("memberid"+APP_NAME,localStorage.getItem("memberid"));
+                                }else{
+                                    window.location.replace("../start.html?code=" + getQueryString("code"));
+                                }
+                            }else{
+                            }
+                        }
+                    }
+                </script>
+
+<a href="bb.html"><h1>AAA</h1></a>
 
 </body>
 </html>
