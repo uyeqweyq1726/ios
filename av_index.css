@@ -1,0 +1,211 @@
+ul.imglist {
+	width: 100%;
+	overflow: hidden;
+	/* margin: 3px; */
+	padding: 0;
+}
+
+ul.imglist li {
+	float: left;
+	width: 25%;
+	text-align: center;
+	list-style-type: none;
+}
+
+ul.imglist li span {
+	display: block;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background: #F6F6F6
+}
+
+#tab_top {
+	height: 40px;
+	text-align: center;
+}
+
+.tab_txt {
+	display: inline-block;
+	height: 100%;
+	width: 110px;
+	text-align: center;
+	line-height: 40px;
+	color: #000000;
+	zoom: 1;
+}
+
+.img0 {
+	display: block;
+	width: 100%;
+	height: 120px;
+	position: absolute;
+	z-index: 30;
+}
+
+.img1 {
+	display: block;
+	width: auto;
+	height: auto;
+	position: absolute;
+	z-index: 40;
+}
+
+.div-relative {
+	position: relative;
+	width: 95%;
+	height: 150px;
+	margin: 5px;
+	padding: ;
+}
+
+.div-a {
+	position: absolute;
+	width: 100%;
+	height: 100px
+}
+
+/* css注释说明： 背景为红色 */
+
+.div-b {
+	position: absolute;
+	display：inline-block；
+}
+
+/* 背景为黄色 */
+
+.div-c {
+	position: absolute;
+	float: right;
+	width: 30px;
+	height: 30px;
+	right: 3px;
+	top: 6px;
+}
+
+.div-d {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	background: #000000;
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	top: 100px;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+.div-e {
+	position: absolute;
+	width: 100%;
+	background: #FFFFFF;
+	top: 120px;
+	min-height: 30px;
+	max-height: 40px;
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 12px;
+	font-size: 14px;
+	padding: 2px;
+
+}
+
+/* .image1 {
+	height: 120px;
+	width: 100%;
+} */
+
+/* .image2 {
+	height: 27px;
+	width: 46px;
+}
+
+.image3 {
+	height: 26px;
+	width: 26px;
+}
+
+.image4 {
+	height: 10px;
+	width: 10px;
+} */
+
+#menu {
+	font: 12px verdana, arial, sans-serif;
+	/* 设置文字大小和字体样式 */
+	width: 100%;
+}
+
+#menu,
+#menu li {
+	list-style: none;
+	/* 将默认的列表符号去掉 */
+	padding: 0;
+	/* 将默认的内边距去掉 */
+	margin: 2px;
+	/* 将默认的外边距去掉 */
+	float: left;
+	/* 往左浮动 */
+	display: block;
+}
+
+.big_div{
+	text-align: center;
+}
+
+.image1 {
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+}
+
+.pp {
+	width: 90px;
+	text-align: center;
+	line-height: 14px;
+	height: 30px;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	display: box;
+	display: -webkit-box;
+	line-clamp: 1;
+	font-family: "PingFangSC-Semibold, sans-serif";
+	color: #333333;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow:hidden;
+	white-space: nowrap; 
+}
+
+.pp1 {
+	background: #FFFFFF00;
+	border-radio: 10px;
+	width: 70px;
+	height: 100%;
+	margin-top: -20px;
+	text-align: center;
+	color: #E67BFF;
+	margin-left: 10px;
+	font-family: "PingFangSC-Semibold, sans-serif";
+	
+	border:1px solid #E67BFF;
+	border-radius:10px;
+}
+
+.pp2 {
+	background: #E67BFF;
+	border-radio: 10px;
+	width: 70px;
+	height: 100%;
+	margin-left: 10px;
+	margin-top: -20px;
+	text-align: center;
+	color: #FFFFFF;
+	font-family: "PingFangSC-Semibold, sans-serif";
+	
+	border:1px solid #E67BFF;
+	border-radius:10px;
+}
