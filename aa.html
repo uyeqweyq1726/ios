@@ -1,37 +1,46 @@
+
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-Hans">
 <head>
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="format-detection" content="email=no" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<meta charset="utf-8">
+<title>viewer.js</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" rel="stylesheet" />
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.min.css"></script>
-    <script src="https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js"></script>
-    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
-
-    <title>A</title>
-    <script type="text/javascript">
-    var a=document.getElementsByTagName("a");
-    for(var i=0;i<a.length;i++)
-    {
-       a[i].onclick=function()
-       {
-           window.location=this.getAttribute("href");
-           return false
-       }
-    }
-</script>
+<link rel="stylesheet" href="https://www.dowebok.com/demo/192/css/viewer.min.css">
+<style>
+* { margin: 0; padding: 0;}
+#dowebok { width: 700px; margin: 0 auto; font-size: 0;}
+#dowebok li { display: inline-block; width: 32%; margin-left: 1%; padding-top: 1%;}
+#dowebok li img { width: 100%;}
+</style>
 </head>
 
 <body>
+<ul id="dowebok">
+	<li><img data-original="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" src="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" alt="图片1"></li>
 
-<h1><a href="bb.html">A</a></h1>
+	<li><img data-original="https://www.dowebok.com/demo/192/img/thumbnails/tibet-2.jpg" src="https://www.dowebok.com/demo/192/img/thumbnails/tibet-2.jpg" alt="图片2"></li>
 
+	<li><img data-original="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" src="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" alt="图片3"></li>
+
+	<li><img data-original="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" src="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" alt="图片4"></li>
+
+	<li><img data-original="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" src="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" alt="图片5"></li>
+
+	<li><img data-original="https://www.dowebok.com/demo/192/img/tibet-6.jpg" src="https://www.dowebok.com/demo/192/img/thumbnails/tibet-1.jpg" alt="图片6"></li>
+</ul>
+
+<script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://www.dowebok.com/demo/192/js/viewer-jquery.min.js"></script>
+<script>
+$(function() {
+	$('#dowebok').viewer({
+		url: 'data-original',
+	});
+});
+</script>
 
 </body>
 </html>
