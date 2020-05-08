@@ -1,68 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-cmn-Hans">
 <head>
-    <meta content="text/html charset=UTF-8" http-equiv="Content-Type" />
-    <title>1</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon-180.png">
+    <script src="/assets/js/ios-common.js"></script>
+    <title>起点智能</title>
+
+    <script src="/assets/js/jquery-1.11.2.min.js"></script>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/weui.min.css">
+    <link rel="stylesheet" href="/assets/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="/assets/css/robot.css">
+    <script src="/assets/swiper/js/swiper.min.js"></script>
+    
+    <style type="text/css">
+    	html,body {
+    		height: 100%;
+			margin: 0;
+            font-size: 20px;
+	    }
+    </style>
+
 </head>
 <body>
-<!-- href后的链接是APP对外开放的scheme，只有scheme与APP中设置的一致，才能打开APP，
-而scheme后面的值可以作为打开APP后的特殊操作，如果仅仅是打开，后面随便写就行，APP中不进行处理即可 -->
-    <a href="shortcut://abc" id="qbt" style="display:none"></a> 
-    <span id="msg"></span>
-</body>
 
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-<p>哈哈哈哈啊</p>
-</html>
+	<iframe src="http://qdhl.xyz" id="content" frameborder="0" style="height: 100%;width: 100%;position: absolute;top: 0;left: 0;">
+        
+    </iframe>
+
+<div class="guide" hidden="" onclick="disGuide()" style="width: 100%; height: 100%; display: none; position: absolute; top: 0; left: 0; z-index: 99999; text-align: right; background: rgba(0,0,0,.9);">
+    <img src="/assets/img/wechat-guide.png?4535" style="width: 60%; margin: 30px;">
+</div>
+
+<div class="guide-standalone" hidden="" onclick="disGuide()" style="width: 100%; display: none; position: fixed; bottom: 0; left: 0; z-index: 99999;">
+    <div class="updown" style="position: relative; width: 210px; text-align: center; margin: 0 auto;">
+        <img src="/assets/img/safari-guide.png?453453" style="width: 210px; height: 92px;">
+        <span style="position: absolute; right: 0; top: 0;"><img src="/assets/img/icon-close.png" style="width: 30px; height: 30;"></span>
+    </div>
+</div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var from = getUrlParams('from');
+        var showed = localStorage.getItem("showGuide");
+        if( !showed && from == 'download'){
+            if( isSafari() ){
+                if( !isStandalone() ){
+                    $('.guide-standalone').show();
+                }
+            }else{
+                $('.guide').show();
+            }
+        }
+    });
+
+    function showGuide(from){
+        if( from == 'download'){
+            if( isSafari() ){
+                if( !isStandalone() ){
+                    $('.guide-standalone').show();
+                }
+            }else{
+                // $('.guide-standalone').show();
+                $('.guide').show();
+            }
+        }
+    }
+
+    function disGuide(){
+        localStorage.setItem("showGuide", true);
+        $('.guide-standalone').hide();
+        $(".guide").hide();
+        // var url = location.search;
+
+        //     console.log("点击guide",url);
+        // if (url) {
+        //     var old_url = window.location.href;
+        //     var new_url = old_url.substring(0, old_url.indexOf('?'));
+        //     self.location = new_url;
+        // }
+    }
+
+    function isSafari() {
+        return /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+    }
+
+    function isStandalone(){
+        return navigator.standalone;
+    }
+
+    function getUrlParams(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+    }
+    </script>
+
+
+</body></html>
